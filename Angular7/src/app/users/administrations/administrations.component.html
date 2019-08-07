@@ -1,0 +1,15 @@
+<div>
+    <label>Виберіть колір тексту в таблицях</label>
+    <div>
+        <select [(ngModel)]="service.textColor">
+            <option *ngFor="let x of colorList" [value]="x" [selected]="service.textColor == x">{{x}}</option>
+        </select>
+    </div>
+    <label>Виберіть колонки для відображення</label>
+    <div>
+        <input type="checkbox" [checked]="service.hideName" [(ngModel)]="service.hideName" />Ім'я<Br>
+        <input type="checkbox" [checked]="service.hideSurName" [(ngModel)]="service.hideSurName" />Прізвище<Br>
+        <input type="checkbox" [checked]="service.hideAge" [(ngModel)]="service.hideAge" />Вік<Br>
+        <input type="checkbox" [checked]="service.hideActive" [(ngModel)]="service.hideActive" />Активний<Br>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand text-white">Test Task Web-Systems.Solutions</a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='/users/list' routerLinkActive='active'>Список користувачів</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='/users/active' routerLinkActive='active'>Активні користувачі</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='/users/administration' routerLinkActive='active'>Адмін панель</a>
+                </li>
+            </ul>
+            <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Вийти</button>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

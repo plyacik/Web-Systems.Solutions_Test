@@ -1,0 +1,22 @@
+<div class="form-group">
+    <label>Знайдено: {{(service.userList | filter:searchTerm)?.length}}</label>
+</div>
+<div class="form-group">
+    <input type="text" class="form-control" placeholder="Пошук" [(ngModel)]="searchTerm" />
+</div>
+<table class="table table-hover">
+    <thead>
+        <th (click)="sortList('name', nameSortFlag)" [hidden]="service.hideName">Ім'я</th>
+        <th (click)="sortList('surName', surNameSortFlag)" [hidden]="service.hideSurName">Прізвище</th>
+        <th (click)="sortList('age', ageSortFlag)" [hidden]="service.hideAge">Вік</th>
+        <th (click)="sortList('isActive', isActiveSortFlag)" [hidden]="service.hideActive">Активний</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usr of service.userList | filter:searchTerm">
+            <td (click)="userDetails(usr.id)" [style.color] = "service.textColor" [hidden]="service.hideName">{{usr.name}}</td>
+            <td (click)="userDetails(usr.id)" [style.color] = "service.textColor" [hidden]="service.hideSurName">{{usr.surName}}</td>
+            <td (click)="userDetails(usr.id)" [style.color] = "service.textColor" [hidden]="service.hideAge">{{usr.age}}</td>
+            <td [hidden]="service.hideActive"><input type="checkbox" [checked]="usr.isActive" (change)="onCheckActive(usr.id)" /></td>
+        </tr>
+    </tbody>
+</table>
